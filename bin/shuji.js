@@ -171,7 +171,14 @@ fileList.forEach((filepath) => {
   });
 
   Object.keys(output).forEach((item) => {
-    const outfile = path.resolve(outputDir, item);
+    if (item.includes("webpack:///~/") || item.includes("webpack:///(webpack)/") || item.includes("webpack:/webpack/") || item.includes("webpack:/external ")) return;
+
+    const extname = path.extname(item)
+    if (extname.includes("?")) {
+      item = item.replace(/\.(.+)\?(.+)/,"-$2.$1")
+    }
+
+    const outfile = path.resolve(outputDir, item.replace("webpack:/", "./"));
     fs.ensureDirSync(path.dirname(outfile));
 
     if (opts.verbose) {

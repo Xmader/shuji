@@ -75,6 +75,7 @@ Please note that any features or changed will not be merged without working unit
 
 ## Version history
 
+* `v0.3.2` (2018-10-24)
 * `v0.3.1` (2016-08-08)
     - Test also in Windows, at [AppVeyor](https://ci.appveyor.com/project/paazmaya/shuji)
 * `v0.3.0` (2016-07-07)
